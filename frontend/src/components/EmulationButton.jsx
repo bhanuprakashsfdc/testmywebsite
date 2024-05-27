@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { emulateDevice } from '../services/apiServices';
+import { validateUrl } from '../services/apiServices';
 
-function EmulationButton({ url, device }) {
+function EmulationButton({ url, setValidatedUrl }) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -9,8 +9,8 @@ function EmulationButton({ url, device }) {
         setLoading(true);
         setError(null);
         try {
-            const emulationResult = await emulateDevice(url, device);
-            console.log(emulationResult); // Update state to display the result, or handle it as needed
+            const { validUrl } = await validateUrl(url);
+            setValidatedUrl(validUrl);
             setLoading(false);
         } catch (error) {
             console.error('Emulation failed:', error);

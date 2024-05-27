@@ -1,24 +1,23 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3001; // Default to 3001 unless specified in environment variables
+const port = process.env.PORT || 3001;
 
-// Middleware
-app.use(express.json()); // For parsing application/json
-app.use(cors()); // Enable CORS for all requests, adjust as needed for production
+app.use(cors());
+app.use(express.json());
 
-// Import route handlers
-const emulationRoutes = require('./src/routes/emulationRoutes');
-
-// Use routes
-app.use('/api', emulationRoutes); // Prefix all API routes with '/api'
-
-// Basic route for testing if the server is up
-app.get('/', (req, res) => {
-  res.send('Hello, your server is running and ready to receive requests!');
+// Define the validate-url route
+app.post('/api/validate-url', (req, res) => {
+    let { url } = req.body;
+    // Ensure the URL includes a protocol
+    if (!/^https?:\/\//i.test(url)) {
+        url = 'http://' + url;
+    }
+    res.json({ validUrl: url });
 });
 
-// Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
+
+module.exports = app; // Export app for testing
