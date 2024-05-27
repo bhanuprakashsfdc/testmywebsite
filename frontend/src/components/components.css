@@ -73,3 +73,8 @@
     height: auto; /* Adjust based on content */
     overflow: auto; /* Ensure scrolling is possible */
 }
+/* EmulationButton */
+.error {
+    color: red;
+    font-weight: bold;
+}
