@@ -1,0 +1,75 @@
+/* Add to your CSS file or within a <style> tag in Header.jsx */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.header h1 a {
+    color: #5D46FD; /* primary color */
+    text-decoration: none;
+}
+.header nav ul {
+    list-style: none;
+    display: flex;
+}
+.header nav ul li {
+    margin-left: 20px;
+}
+.header nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.header nav ul li a:hover {
+    color: #FE6F3D; /* secondary color */
+}
+
+/* Add these styles in your CSS file or a <style> tag within URLInput.jsx */
+.input-field {
+    padding: 8px 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: calc(100% - 40px); /* Adjust width as necessary */
+}
+
+.submit-btn {
+    padding: 8px 16px;
+    background-color: #5D46FD; /* Use the primary color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #4338CA; /* A darker shade for hover effect */
+}
+
+/* Device Selector CSS */
+/* Add to your Tailwind CSS configuration or a specific CSS file */
+.device-selector {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+/* CountrySelector */
+.country-selector {
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* RenderPane */
+.render-pane {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%; /* Adjust based on container or specific needs */
+    height: auto; /* Adjust based on content */
+    overflow: auto; /* Ensure scrolling is possible */
+}
